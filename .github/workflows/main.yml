@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: running awas tests
+      run: |
+        git clone -b master --recursive https://github.com/sireum/v3.git sireum-v3
+        git clone https://github.com/sireum/air.git sireum-v3/aadl/ir
+        cd sireum-v3
+        ln -s ../ ./awas
+        ./bin/sbt-launch.sh "project awas-jvm" test
+        cd ..
