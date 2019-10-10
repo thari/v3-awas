@@ -14,6 +14,7 @@ jobs:
     - name: running awas tests
       shell: bash
       run: |
+        ls -liag
         git clone -b master --recursive https://github.com/sireum/v3.git sireum-v3
         git clone https://github.com/sireum/air.git sireum-v3/aadl/ir
         cd sireum-v3
