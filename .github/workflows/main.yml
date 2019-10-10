@@ -10,8 +10,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@master
     - name: running awas tests
+      shell: bash
       run: |
         git clone -b master --recursive https://github.com/sireum/v3.git sireum-v3
         git clone https://github.com/sireum/air.git sireum-v3/aadl/ir
